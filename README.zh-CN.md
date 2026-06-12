@@ -6,11 +6,11 @@
 
 <p align="center">
   <a href="https://awesome.re"><img src="https://awesome.re/badge.svg" alt="Awesome"></a>
-  <img src="https://img.shields.io/badge/Papers-80%2B-2ea44f" alt="papers">
+  <img src="https://img.shields.io/badge/Papers-91%2B-2ea44f" alt="papers">
   <img src="https://img.shields.io/badge/GitHub%20Projects-8%2B-0969da" alt="github projects">
-  <img src="https://img.shields.io/badge/Hugging%20Face%20Resources-17%2B-ff8c00" alt="hugging face resources">
+  <img src="https://img.shields.io/badge/Hugging%20Face%20Resources-20%2B-ff8c00" alt="hugging face resources">
   <img src="https://img.shields.io/badge/Agent%20Updates-Periodic-6f42c1" alt="agent updates">
-  <img src="https://img.shields.io/badge/Updated-2026--05--12-red" alt="updated">
+  <img src="https://img.shields.io/badge/Updated-2026--06--12-red" alt="updated">
 </p>
 
 <p align="center">
@@ -50,7 +50,7 @@
 - 子空间、低秩结构与过度拒答缓解
 - 整合型 GitHub 工具、公开模型与机构生态
 
-最后更新：`2026-05-12`
+最后更新：`2026-06-12`
 
 ---
 
@@ -86,7 +86,7 @@
 
 ## 🧪 核心基准评测
 
-如果你是从实验视角进入这个方向，建议先看这里。当前这一组基准对齐我们的大规模实验记录方式，把安全突破效果和通用能力保留分开记录。`2026-04-20` 这一轮月度维护没有替换实验基准栈；下面的链接和数据集介绍仍然对应上一次完整 benchmark 页面核对，即 `2026-04-17`。像 OR-Bench 和 EVOREFUSE 这类更偏 over-refusal 的新 benchmark 论文，会放到 [结构化研究版图](#structured-landscape) 里统一跟踪，因为这里保留的是当前实验主栈。
+如果你是从实验视角进入这个方向，建议先看这里。当前这一组基准对齐我们的大规模实验记录方式，把安全突破效果和通用能力保留分开记录。`2026-06-12` 这一轮月度维护没有替换实验基准栈；下面所有 benchmark 链接已经在 `2026-06-12` 做过可访问性检查，数据集介绍仍然对应上一次完整 benchmark 页面核对，即 `2026-04-17`。像 OR-Bench 和 EVOREFUSE 这类更偏 over-refusal 的新 benchmark 论文，会放到 [结构化研究版图](#structured-landscape) 里统一跟踪，因为这里保留的是当前实验主栈。
 
 ### 安全评测基准
 
@@ -117,7 +117,7 @@
 | 模块 | 焦点 | 主要研究路线 | 常用方式 |
 | --- | --- | --- | --- |
 | 基础边界与评测 | 安全边界如何被教给模型，以及如何测量 | 定义无害性训练、偏好数据和过度拒答 benchmark，作为后续拒答抑制工作的参照系。 | Constitutional training、偏好对齐、无害性数据构造、benchmark 设计。 |
-| 安全神经元 / 稀疏组件 | 模型内部的拒答定位 | 将拒答看成由少量神经元、注意力头、层或安全模块承载的行为。 | 激活对比、因果修补、消融、选择性微调、冻结、神经元移植、稀疏剪枝。 |
+| 安全神经元 / 稀疏组件 | 模型内部的拒答定位 | 将拒答看成由少量神经元、注意力头、层、专家、router 或安全模块承载的行为。 | 激活对比、因果修补、消融、选择性微调、冻结、神经元移植、专家 masking、router 干预、稀疏剪枝。 |
 | 拒答方向 / 表征引导 | 激活空间中的拒答控制 | 将拒答看成激活空间中的方向或少量方向组合。 | 对比激活加法、表征引导、条件化表征引导、仿射编辑、方向级对抗训练。 |
 | 子空间 / 低秩结构 | 拒答的多维几何结构 | 将单方向视角扩展到子空间、概念锥、多面体和低秩安全补丁。 | LoRA 约束、子空间投影、模型融合、SVD / SAE 分解、零空间约束、目标表征微调。 |
 
@@ -126,6 +126,7 @@
 | 论文 | 年份 | 会议 / 状态 | 当前引用量 | 特性 |
 | --- | --- | --- | ---: | --- |
 | [RefusalBench: Generative Evaluation of Selective Refusal in Grounded Language Models](https://aclanthology.org/2026.eacl-long.321/) | 2026 | EACL 2026 | N/A | 面向 grounded / RAG 场景提出选择性拒答的生成式评测，并释放 RefusalBench-NQ 与 RefusalBench-GaRAGe 资源。配套仓库：[refusalbench](https://github.com/aashiqmuhamed/refusalbench)。 |
+| [Blind Refusal: Language Models Refuse to Help Users Evade Unjust, Absurd, and Illegitimate Rules](https://arxiv.org/abs/2604.06233) | 2026 | arXiv 2026 | N/A | 将 blind refusal 作为安全边界测量问题：模型会拒绝帮助用户规避已经失去正当性的规则，即使请求本身没有独立安全或双用途风险。 |
 | [Mitigating Over-Refusal in Aligned Large Language Models via Inference-Time Activation Energy](https://arxiv.org/abs/2510.08646) | 2025 | arXiv 2025，2026 修订 | N/A | 提出 Energy Landscape Steering，一种无需训练的推理期干预，用来降低误拒答并尽量保留安全行为。 |
 | [EVOREFUSE: Evolutionary Prompt Optimization for Evaluation and Mitigation of LLM Over-Refusal to Pseudo-Malicious Instructions](https://arxiv.org/abs/2505.23473) | 2025 | NeurIPS 2025 | N/A | 近期较有代表性的过度拒答 benchmark 与对齐数据工作，围绕演化生成的伪恶意指令展开。 |
 | [VSCBench: Bridging the Gap in Vision-Language Model Safety Calibration](https://aclanthology.org/2025.findings-acl.158/) | 2025 | Findings of ACL 2025 | N/A | 面向视觉语言模型安全校准的 benchmark，明确同时测量 under-safety 和 over-safety。 |
@@ -143,11 +144,18 @@
 
 ## 🧠 安全神经元 / 稀疏组件
 
-这一条主线认为拒答可能主要由稀疏神经元、注意力头、层或安全关键模块承载，而不只是一个全局方向。核心工作流通常是先定位内部承载组件，再做局部干预。
+这一条主线认为拒答可能主要由稀疏神经元、注意力头、层、专家、router 或安全关键模块承载，而不只是一个全局方向。核心工作流通常是先定位内部承载组件，再做局部干预。
 
 | 论文 | 年份 | 会议 / 状态 | 当前引用量 | 特性 |
 | --- | --- | --- | ---: | --- |
+| [Expert-Aware Refusal Steering](https://arxiv.org/abs/2606.04160) | 2026 | arXiv 2026 | N/A | 将 refusal steering 扩展到 MoE LLM，并说明 expert-specific directions 与 routing patterns 可以以专家感知方式抑制拒答行为。 |
+| [A Single Neuron Is Sufficient to Bypass Safety Alignment in Large Language Models](https://arxiv.org/abs/2605.08513) | 2026 | arXiv 2026 | N/A | 定位因果充分的拒答神经元，并展示抑制单个神经元就可能绕过有害请求上的安全对齐。 |
+| [How Alignment Routes: Localizing, Scaling, and Controlling Policy Circuits in Language Models](https://arxiv.org/abs/2604.04385) | 2026 | arXiv 2026 | N/A | 定位拒答行为中的稀疏 gate-amplifier policy circuit，并展示调节 routing 信号可以连续控制策略强度。 |
+| [Deactivating Refusal Triggers: Understanding and Mitigating Overrefusal in Safety Alignment](https://arxiv.org/abs/2603.11388) | 2026 | arXiv 2026 | N/A | 分析安全对齐微调产生的 refusal-trigger 线索，并提出面向触发词的过度拒答缓解方法。 |
+| [Beyond I'm Sorry, I Can't: Dissecting Large-Language-Model Refusal](https://ojs.aaai.org/index.php/AAAI/article/view/41119) | 2026 | AAAI 2026 | N/A | 使用稀疏自编码器寻找 refusal-critical feature sets；消融这些特征可以把模型从拒答翻转为服从，并暴露拒答行为中的冗余因果特征。 |
+| [Sparse Models, Sparse Safety: Unsafe Routes in Mixture-of-Experts LLMs](https://arxiv.org/abs/2602.08621) | 2026 | arXiv 2026 | N/A | 将稀疏安全定位扩展到 MoE router，识别 unsafe routes 与 router 级干预。配套代码：[TrustAIRLab/UnsafeMoE](https://github.com/TrustAIRLab/UnsafeMoE)。 |
 | [Towards Understanding Safety Alignment: A Mechanistic Perspective from Safety Neurons](https://openreview.net/forum?id=AAXMcAyNF6) | 2025 | NeurIPS 2025 Poster | 1 | 对理解安全稀疏性与能力耦合关系很关键。 |
+| [SAFEx: Analyzing Vulnerabilities of MoE-Based LLMs via Stable Safety-critical Expert Identification](https://proceedings.neurips.cc/paper_files/paper/2025/hash/bd127877149d4965ad834c75a65b3052-Abstract-Conference.html) | 2025 | NeurIPS 2025 | N/A | 识别 MoE LLM 中的安全关键专家，并将其分解为有害内容检测组和有害响应控制组。配套代码：[Bearisbug/SAFEx](https://github.com/Bearisbug/SAFEx)。 |
 | [Safety Alignment Should Be Made More Than Just A Few Attention Heads](https://arxiv.org/abs/2508.19697) | 2025 | arXiv 2025 | N/A | 从拒答方向论文的引用扩展命中；利用拒答方向引导的 attention head 消融，说明安全行为不应只集中在少数 attention heads。 |
 | [Understanding and Enhancing Safety Mechanisms of LLMs via Safety-Specific Neuron](https://openreview.net/forum?id=yR47RmND1m) | 2025 | ICLR 2025 | N/A | 安全神经元路线的代表作，强调拒答可能由稀疏内部组件承载。配套代码：[Safety-Neuron](https://github.com/zhaoyiran924/Safety-Neuron)。 |
 
@@ -161,11 +169,16 @@
 
 | 论文 | 年份 | 会议 / 状态 | 当前引用量 | 特性 |
 | --- | --- | --- | ---: | --- |
+| [Latent-space Attacks for Refusal Evasion in Language Models](https://arxiv.org/abs/2605.21706) | 2026 | arXiv 2026 | N/A | 将拒答方向消融重新解释为针对拒答 probe 的 latent-space evasion，并把表征推入 compliant region，而不是只停在决策边界。 |
 | [Steering Safely or Off a Cliff? Rethinking Specificity and Robustness in Inference-Time Interventions](https://aclanthology.org/2026.eacl-long.268/) | 2026 | EACL 2026 | N/A | 评估 steering 是否只改变目标属性；过度拒答 steering 虽能保持普通能力，但可能增加安全突破脆弱性，因此需要显式检查鲁棒性和特异性。 |
 | [There Is More to Refusal in Large Language Models than a Single Direction](https://arxiv.org/abs/2602.02132) | 2026 | arXiv 2026 | N/A | 直接挑战单一拒答方向叙事，把多种拒答和不服从方向区分开，同时说明很多方向仍然共享一个可控的行为旋钮。 |
 | [RepIt: Steering Language Models with Concept-Specific Refusal Vectors](https://openreview.net/forum?id=fsZkx8gek0) | 2026 | ICLR 2026 Poster | N/A | 从一个全局拒答向量进一步走向概念级拒答向量，说明选择性拒答抑制可以绕开常见安全 benchmark。 |
 | [AlphaSteer: Learning Refusal Steering with Principled Null-Space Constraint](https://openreview.net/forum?id=1vvbzAqdTe) | 2026 | ICLR 2026 Poster | N/A | 用带原理约束的零空间限制来学习拒答 steering，直接针对安全、能力和过度拒答之间的权衡。 |
+| [Differentiated Directional Intervention: A Framework for Evading LLM Safety Alignment](https://ojs.aaai.org/index.php/AAAI/article/view/41148) | 2026 | AAAI 2026 | N/A | 将单一拒答方向拆解为有害检测方向和拒答执行方向，再通过差异化双向干预规避安全对齐。 |
 | [SOM Directions are Better than One: Multi-Directional Refusal Suppression in Language Models](https://ojs.aaai.org/index.php/AAAI/article/view/40551) | 2026 | AAAI 2026 | 0 | 近期代表作之一，明确展示多拒答方向优于单向量假设。配套代码：[som-refusal-directions](https://github.com/pralab/som-refusal-directions)。 |
+| [Refusal Direction is Universal Across Safety-Aligned Languages](https://openreview.net/forum?id=eWxKpdAdXH) | 2025 | NeurIPS 2025 Poster | N/A | 展示拒答方向可以跨 14 种语言迁移，且英语抽取的拒答抑制方向能够跨语言泛化。配套仓库：[Multilingual-Refusal](https://github.com/mainlp/Multilingual-Refusal)。 |
+| [LLMs Encode Harmfulness and Refusal Separately](https://papers.neurips.cc/paper_files/paper/2025/hash/cd18539787d90e1d682d557c2c71b534-Abstract-Conference.html) | 2025 | NeurIPS 2025 | N/A | 将 harmfulness 表征与 refusal 表征区分开，支持选择性 steering 和 latent guard 分析，而不是只把拒答行为本身当作唯一安全信号。配套代码：[LLMs_Encode_Harmfulness_Refusal_Separately](https://github.com/CHATS-lab/LLMs_Encode_Harmfulness_Refusal_Separately)。 |
+| [COSMIC: Generalized Refusal Direction Identification in LLM Activations](https://aclanthology.org/2025.findings-acl.1310/) | 2025 | Findings of ACL 2025 | N/A | 使用 cosine similarity 自动识别 refusal steering directions 和目标层，不依赖拒答模板或输出 token 假设。配套代码：[COSMIC](https://github.com/wang-research-lab/COSMIC)。 |
 | [The Geometry of Refusal in Large Language Models: Concept Cones and Representational Independence](https://openreview.net/forum?id=80IwJqlXs8) | 2025 | ICML 2025 Poster | 0 | 将视角从单方向扩展到多方向几何。 |
 | [Surgical, Cheap, and Flexible: Mitigating False Refusal in Language Models via Single Vector Ablation](https://openreview.net/forum?id=SCBn8MCLwc) | 2024 | ICLR 2025 | N/A | 一个轻量、训练外的误拒答缓解方法，通过消融正交化后的误拒答向量来做细粒度控制。配套代码：[False-Refusal-Mitigation](https://github.com/mainlp/False-Refusal-Mitigation)。 |
 | [Refusal in LLMs is an Affine Function](https://arxiv.org/abs/2411.09003) | 2024 | arXiv 2024 | N/A | 将拒答控制从单方向扩展到仿射概念编辑，说明比单纯方向编辑更稳定。配套代码：[steering-llama3](https://github.com/EleutherAI/steering-llama3)。 |
@@ -205,52 +218,55 @@
 
 ### 💻 GitHub 工具与工程
 
-GitHub 星标数检查时间：`2026-05-12`。大仓库统一用四舍五入后的 `k` 格式提升可读性；可获得的精确值会保留在本轮 review bundle 的 source log 中。
+GitHub 星标数检查时间：`2026-06-12`。大仓库统一用四舍五入后的 `k` 格式提升可读性；可获得的精确值会保留在本轮 review bundle 的 source log 中。
 
 | 项目 | 星标数 | 链接 | 特性 |
 | --- | ---: | --- | --- |
-| Heretic | 20.8k | [p-e-w/heretic](https://github.com/p-e-w/heretic) | 当前最显眼的拒答抑制开源仓库。 |
-| garak | 7.8k | [NVIDIA/garak](https://github.com/NVIDIA/garak) | 高热度的大模型安全扫描与红队工具。 |
-| OBLITERATUS | 5.5k | [elder-plinius/OBLITERATUS](https://github.com/elder-plinius/OBLITERATUS) | 高热度的 abliteration / 拒答移除工程项目，不只是论文配套仓库。 |
-| llm-guard | 2.9k | [protectai/llm-guard](https://github.com/protectai/llm-guard) | 应用层防护工具，可作为模型内部安全编辑的对照。 |
-| representation-engineering | 994 | [andyzoujm/representation-engineering](https://github.com/andyzoujm/representation-engineering) | 激活空间干预的常用通用工具。 |
-| HarmBench | 944 | [centerforaisafety/HarmBench](https://github.com/centerforaisafety/HarmBench) | 公开安全评测里最常见的基准之一。 |
-| abliterix | 219 | [wuwangzhang1216/abliterix](https://github.com/wuwangzhang1216/abliterix) | 自动化 alignment adjustment 工具，覆盖 steering、LoRA 式编辑、MoE expert 粒度控制和 Optuna 搜索。 |
-| steering-vectors | 149 | [steering-vectors/steering-vectors](https://github.com/steering-vectors/steering-vectors) | 更偏工具库形态的 steering 组件集合，适合做 representation-engineering 工作流复用。 |
+| Heretic | 24.2k | [p-e-w/heretic](https://github.com/p-e-w/heretic) | 当前最显眼的拒答抑制开源仓库。 |
+| garak | 8.1k | [NVIDIA/garak](https://github.com/NVIDIA/garak) | 高热度的大模型安全扫描与红队工具。 |
+| OBLITERATUS | 6.4k | [elder-plinius/OBLITERATUS](https://github.com/elder-plinius/OBLITERATUS) | 高热度的 abliteration / 拒答移除工程项目，不只是论文配套仓库。 |
+| llm-guard | 3.1k | [protectai/llm-guard](https://github.com/protectai/llm-guard) | 应用层防护工具，可作为模型内部安全编辑的对照。 |
+| representation-engineering | 1.0k | [andyzoujm/representation-engineering](https://github.com/andyzoujm/representation-engineering) | 激活空间干预的常用通用工具。 |
+| HarmBench | 981 | [centerforaisafety/HarmBench](https://github.com/centerforaisafety/HarmBench) | 公开安全评测里最常见的基准之一。 |
+| abliterix | 148 | [wuwangzhang1216/abliterix](https://github.com/wuwangzhang1216/abliterix) | 自动化 alignment adjustment 工具，覆盖 steering、LoRA 式编辑、MoE expert 粒度控制和 Optuna 搜索。 |
+| steering-vectors | 151 | [steering-vectors/steering-vectors](https://github.com/steering-vectors/steering-vectors) | 更偏工具库形态的 steering 组件集合，适合做 representation-engineering 工作流复用。 |
 
 <a id="hugging-face-models"></a>
 
 ### 🤗 Hugging Face 热门模型
 
-已有模型行沿用 `2026-04-30` 的稳定 Hugging Face 快照，除非备注里标明是 `2026-05-12` 新增。数字来自 Hugging Face 公开模型页面；像 `2.32k`、`1.4k`、`1.27k` 这类 likes 缩写保持官方页面写法不变。这个表优先保留高下载量公共 checkpoint 和少量旗帜性生态权重。
+Hugging Face 指标检查时间为 `2026-06-12`。数字来自 Hugging Face 公开模型页面或 Hugging Face API；downloads 是平台公开的滚动快照，当平台可见时间窗口变化时可能比上一轮更低。这个表优先保留高下载量公共 checkpoint 和少量旗帜性生态权重。
 
 | 仓库 | Likes | Downloads | 链接 | 备注 |
 | --- | ---: | ---: | --- | --- |
 | perplexity-ai/r1-1776 | 2.32k | 553 | [HF](https://huggingface.co/perplexity-ai/r1-1776) | 官方反审查模型，公开可见度很高。 |
-| p-e-w/gpt-oss-20b-heretic | 114 | 1,486 | [HF](https://huggingface.co/p-e-w/gpt-oss-20b-heretic) | 最值得优先关注的公开 Heretic 权重之一，而且已经进入 `gpt-oss-20b` 这一新底座。 |
-| mlabonne/gemma-3-27b-it-abliterated | 317 | 429,518 | [HF](https://huggingface.co/mlabonne/gemma-3-27b-it-abliterated) | 较成熟的 abliterated Gemma 系列模型；在 `2026-05-12` 刷新中新增。 |
-| Orenguteng/Llama-3.1-8B-Lexi-Uncensored-V2 | 292 | 14,453 | [HF](https://huggingface.co/Orenguteng/Llama-3.1-8B-Lexi-Uncensored-V2) | 比较典型的 Llama 社区非审查模型。 |
-| huihui-ai/DeepSeek-R1-Distill-Qwen-32B-abliterated | 242 | 123,091 | [HF](https://huggingface.co/huihui-ai/DeepSeek-R1-Distill-Qwen-32B-abliterated) | 可见度较高的 abliterated checkpoint。 |
-| paperscarecrow/Gemma-4-31B-it-abliterated | 89 | 161,454 | [HF](https://huggingface.co/paperscarecrow/Gemma-4-31B-it-abliterated) | 高下载量的社区 abliterated 模型。 |
-| HauhauCS/Gemma-4-E4B-Uncensored-HauhauCS-Aggressive | 418 | 781,272 | [HF](https://huggingface.co/HauhauCS/Gemma-4-E4B-Uncensored-HauhauCS-Aggressive) | 社区热度非常高。 |
-| nohurry/gemma-4-26B-A4B-it-heretic-GUFF | 67 | 93,266 | [HF](https://huggingface.co/nohurry/gemma-4-26B-A4B-it-heretic-GUFF) | 高下载量 Heretic 衍生模型。 |
-| llmfan46/gemma-4-31B-it-uncensored-heretic-GGUF | 47 | 118,433 | [HF](https://huggingface.co/llmfan46/gemma-4-31B-it-uncensored-heretic-GGUF) | 通过 GGUF 传播放大的 Heretic 衍生模型。 |
-| Jiunsong/supergemma4-26b-uncensored-gguf-v2 | 484 | 213,818 | [HF](https://huggingface.co/Jiunsong/supergemma4-26b-uncensored-gguf-v2) | 热度比较稳定的社区非审查资源。 |
-| DavidAU/Qwen3.5-40B-Claude-4.6-Opus-Deckard-Heretic-Uncensored-Thinking | 183 | 14,159 | [HF](https://huggingface.co/DavidAU/Qwen3.5-40B-Claude-4.6-Opus-Deckard-Heretic-Uncensored-Thinking) | 命名很社区化，但热度并不低。 |
-| HauhauCS/Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive | 1.4k | 1,391,154 | [HF](https://huggingface.co/HauhauCS/Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive) | 极高下载量，能反映真实社区需求。 |
-| HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive | 1.27k | 1,148,784 | [HF](https://huggingface.co/HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive) | 同系列的小一档模型，但下载量也很高。 |
-| HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive | 504 | 662,312 | [HF](https://huggingface.co/HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive) | 同系列高热社区非审查 Qwen 模型的更新一代。 |
+| p-e-w/gpt-oss-20b-heretic | 123 | 834 | [HF](https://huggingface.co/p-e-w/gpt-oss-20b-heretic) | 最值得优先关注的公开 Heretic 权重之一，而且已经进入 `gpt-oss-20b` 这一新底座。 |
+| Andycurrent/Gemma-3-1B-it-GLM-4.7-Flash-Heretic-Uncensored-Thinking_GGUF | 55 | 2,433,843 | [HF](https://huggingface.co/Andycurrent/Gemma-3-1B-it-GLM-4.7-Flash-Heretic-Uncensored-Thinking_GGUF) | 高下载量 Heretic / uncensored GGUF 衍生模型；在 `2026-06-12` 刷新中新增。 |
+| OBLITERATUS/gemma-4-E4B-it-OBLITERATED | 701 | 399,527 | [HF](https://huggingface.co/OBLITERATUS/gemma-4-E4B-it-OBLITERATED) | 高热度 OBLITERATUS 模型，带有 `refusal-removal`、`abliterated` 和 `uncensored` 标签。 |
+| mlabonne/Qwen3-30B-A3B-abliterated | 37 | 385,916 | [HF](https://huggingface.co/mlabonne/Qwen3-30B-A3B-abliterated) | 高下载量 abliterated Qwen checkpoint；在 `2026-06-12` 刷新中新增。 |
+| mlabonne/gemma-3-27b-it-abliterated | 330 | 7,973 | [HF](https://huggingface.co/mlabonne/gemma-3-27b-it-abliterated) | 较成熟的 abliterated Gemma 系列模型。 |
+| Orenguteng/Llama-3.1-8B-Lexi-Uncensored-V2 | 303 | 27,923 | [HF](https://huggingface.co/Orenguteng/Llama-3.1-8B-Lexi-Uncensored-V2) | 比较典型的 Llama 社区非审查模型。 |
+| huihui-ai/DeepSeek-R1-Distill-Qwen-32B-abliterated | 244 | 45,631 | [HF](https://huggingface.co/huihui-ai/DeepSeek-R1-Distill-Qwen-32B-abliterated) | 可见度较高的 abliterated checkpoint。 |
+| paperscarecrow/Gemma-4-31B-it-abliterated | 106 | 117,674 | [HF](https://huggingface.co/paperscarecrow/Gemma-4-31B-it-abliterated) | 高下载量的社区 abliterated 模型。 |
+| HauhauCS/Gemma-4-E4B-Uncensored-HauhauCS-Aggressive | 774 | 619,943 | [HF](https://huggingface.co/HauhauCS/Gemma-4-E4B-Uncensored-HauhauCS-Aggressive) | 社区热度非常高。 |
+| nohurry/gemma-4-26B-A4B-it-heretic-GUFF | 70 | 7,913 | [HF](https://huggingface.co/nohurry/gemma-4-26B-A4B-it-heretic-GUFF) | 作为 Heretic 衍生 lineage 信号保留。 |
+| llmfan46/gemma-4-31B-it-uncensored-heretic-GGUF | 113 | 109,406 | [HF](https://huggingface.co/llmfan46/gemma-4-31B-it-uncensored-heretic-GGUF) | 通过 GGUF 传播放大的 Heretic 衍生模型。 |
+| Jiunsong/supergemma4-26b-uncensored-gguf-v2 | 808 | 142,580 | [HF](https://huggingface.co/Jiunsong/supergemma4-26b-uncensored-gguf-v2) | 热度比较稳定的社区非审查资源。 |
+| DavidAU/Qwen3.5-40B-Claude-4.6-Opus-Deckard-Heretic-Uncensored-Thinking | 201 | 1,167 | [HF](https://huggingface.co/DavidAU/Qwen3.5-40B-Claude-4.6-Opus-Deckard-Heretic-Uncensored-Thinking) | 命名很社区化，但热度并不低。 |
+| HauhauCS/Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive | 1.42k | 205,270 | [HF](https://huggingface.co/HauhauCS/Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive) | 极高下载量，能反映真实社区需求。 |
+| HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive | 1.53k | 554,514 | [HF](https://huggingface.co/HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive) | 同系列的小一档模型，但下载量也很高。 |
+| HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive | 1.69k | 3,057,541 | [HF](https://huggingface.co/HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive) | 同系列高热社区非审查 Qwen 模型的高可见度更新一代。 |
 
 <a id="hugging-face-leaderboards"></a>
 
 ### 🏆 Hugging Face 榜单 / Spaces
 
-新增 Space 行检查时间为 `2026-05-12`；UGI 行保留 `2026-04-30` 的稳定快照。这一小节跟踪和去拒答模型生态相关的公开 Space 或榜单资源。
+Space 指标检查时间为 `2026-06-12`。这一小节跟踪和去拒答模型生态相关的公开 Space 或榜单资源。
 
 | 资源 | 状态 | 链接 | 特性 |
 | --- | --- | --- | --- |
-| OBLITERATUS Space | 运行中；348 点赞 | [Hugging Face Space](https://huggingface.co/spaces/pliny-the-prompter/obliteratus) | 与 OBLITERATUS 配套的官方 Space，可作为 abliteration 与拒答移除工具生态的公开信号。 |
-| UGI-Leaderboard | 运行中；约 1.73k 点赞（`2026-04-30` 快照） | [Hugging Face Space](https://huggingface.co/spaces/DontPlanToEnd/UGI-Leaderboard) | 公开的 "Uncensored General Intelligence Leaderboard" Space，可用于跟踪非审查 / 去拒答相关模型的社区评测信号。 |
+| OBLITERATUS Space | 运行中；377 点赞 | [Hugging Face Space](https://huggingface.co/spaces/pliny-the-prompter/obliteratus) | 与 OBLITERATUS 配套的官方 Space，可作为 abliteration 与拒答移除工具生态的公开信号。 |
+| UGI-Leaderboard | 运行中；约 1.82k 点赞 | [Hugging Face Space](https://huggingface.co/spaces/DontPlanToEnd/UGI-Leaderboard) | 公开的 "Uncensored General Intelligence Leaderboard" Space，可用于跟踪非审查 / 去拒答相关模型的社区评测信号。 |
 
 ### 🏢 公开实验室 / 公司
 
