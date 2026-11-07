@@ -256,6 +256,7 @@ Hugging Face metrics checked on `2026-06-12`. Figures come from public Hugging F
 | HauhauCS/Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive | 1.42k | 205,270 | [HF](https://huggingface.co/HauhauCS/Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive) | Huge community demand signal. |
 | HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive | 1.53k | 554,514 | [HF](https://huggingface.co/HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive) | Smaller sibling with equally striking download volume. |
 | HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive | 1.69k | 3,057,541 | [HF](https://huggingface.co/HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive) | A highly visible successor in the same high-traction uncensored Qwen family. |
+| ezolabs/DeepSeek-v4.1-v1017-Flash-EZO-UNCENSORED | 0 | 0 | [HF](https://huggingface.co/ezolabs/DeepSeek-v4.1-v1017-Flash-EZO-UNCENSORED) | Refusal-direction ablation of `DeepSeek-V4.1-Flash-1017`, kept in the base's FP8 format; the card reports refusal and capability against stock (JailbreakBench refusals 97% → 3%, MMLU-Pro −0.74 pp). |
 
 <a id="hugging-face-leaderboards"></a>
 
