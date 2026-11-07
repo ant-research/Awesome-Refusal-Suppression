@@ -256,6 +256,7 @@ Hugging Face 指标检查时间为 `2026-06-12`。数字来自 Hugging Face 公�
 | HauhauCS/Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive | 1.42k | 205,270 | [HF](https://huggingface.co/HauhauCS/Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive) | 极高下载量，能反映真实社区需求。 |
 | HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive | 1.53k | 554,514 | [HF](https://huggingface.co/HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive) | 同系列的小一档模型，但下载量也很高。 |
 | HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive | 1.69k | 3,057,541 | [HF](https://huggingface.co/HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive) | 同系列高热社区非审查 Qwen 模型的高可见度更新一代。 |
+| ezolabs/DeepSeek-v4.1-v1017-Flash-EZO-UNCENSORED | 0 | 0 | [HF](https://huggingface.co/ezolabs/DeepSeek-v4.1-v1017-Flash-EZO-UNCENSORED) | 对 `DeepSeek-V4.1-Flash-1017` 做拒答方向消融，保留底座原生 FP8 格式；模型卡给出与原版对比的拒答和能力结果（JailbreakBench 拒答率 97% → 3%，MMLU-Pro −0.74 pp）。 |
 
 <a id="hugging-face-leaderboards"></a>
 
