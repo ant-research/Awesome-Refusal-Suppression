@@ -230,6 +230,7 @@ GitHub stars checked on `2026-06-12`. Large repositories are displayed in rounde
 | HarmBench | 981 | [centerforaisafety/HarmBench](https://github.com/centerforaisafety/HarmBench) | One of the most common public safety evaluation benchmarks. |
 | abliterix | 148 | [wuwangzhang1216/abliterix](https://github.com/wuwangzhang1216/abliterix) | Automated alignment-adjustment toolkit covering steering, LoRA-style editing, MoE expert-level controls, and Optuna search. |
 | steering-vectors | 151 | [steering-vectors/steering-vectors](https://github.com/steering-vectors/steering-vectors) | A reusable steering library with docs and examples for representation-engineering workflows. |
+| pyrit-cicd-gate | 0 | [unst33r-si/pyrit-cicd-gate](https://github.com/unst33r-si/pyrit-cicd-gate) | GitHub Action that runs 1,000 PyRIT adversarial probes per pull request and fails the build above a configurable jailbreak-rate threshold. |
 
 <a id="hugging-face-models"></a>
 
